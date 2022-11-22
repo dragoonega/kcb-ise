@@ -18,7 +18,6 @@ sales=pd.merge(participants,payments,on=['id'],how='inner')
 # create new column named 'sum_price'
 sales.insert(5,'sum_price',sales['price'])
 for i,row in sales.iterrows():
-    status="Belum"
     if math.isnan(sales.loc[i,'price']):
         sales.loc[i,'price']=0
 
