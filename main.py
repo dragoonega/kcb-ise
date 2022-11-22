@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from facts import participant
+from participant import participant
 
 def main():
     participant()
