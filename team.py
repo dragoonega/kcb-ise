@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import pandas as pd
+from onetimehistory import conndb2,conn2
 
 def team():
     # Extract
@@ -14,7 +15,7 @@ def team():
     participant = participant.rename(columns={'category': 'team_category'})
     team = team.rename(columns={'name':'team_name'})
     city = city.rename(columns={'name': 'city_name', 'region': 'region_id'})
-    region = region.rename(columns={'id': 'region_id', 'name': 'region_name'})
+    region = region.rename(columns={'name': 'region_name'})
     instance = instance.rename(columns={'name':'instance_name'})
 
     participant = participant[['id', 'team_category']]
@@ -29,4 +30,6 @@ def team():
     team = pd.merge(team, instance, on=['id'], how='inner')
 
     # Load
-    team.to_csv('csv/Fact_Team.csv',index=False)
+    team.to_sql('Fact_Teams', conn2, if_exists='append', index=False)
+
+team()

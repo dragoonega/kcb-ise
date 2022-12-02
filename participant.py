@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
 import pandas as pd
+from onetimehistory import conndb2,conn2
 
 # Participant Fact Table
 def participant():
+    conndb2()
     # Extract
     participant = pd.read_csv('csv/Dim_Participant.csv')
     city = pd.read_csv('csv/Dim_City.csv')
@@ -14,7 +16,7 @@ def participant():
     # Transform
     participant = participant.rename(columns={'full_name': 'participant_name', 'category': 'participant_category'})    
     city = city.rename(columns={'name': 'city_name', 'region': 'region_id'})
-    region = region.rename(columns={'id': 'region_id', 'name': 'region_name'})
+    region = region.rename(columns={'name': 'region_name'})
     instance = instance.rename(columns={'name': 'instance_name'})
     team = team.rename(columns={'name': 'team_name'})
     
@@ -29,4 +31,6 @@ def participant():
     fact = pd.merge(fact, team, how='inner', on='id')
 
     # Load
-    fact.to_csv('csv/Fact_Participant.csv', index=False)
+    fact.to_sql('Fact_Participant', conn2, if_exists='append', index=False)
+    
+participant()

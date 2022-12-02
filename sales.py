@@ -2,9 +2,12 @@
 
 import pandas as pd
 import math
+from onetimehistory import conndb2,conn2
 
 def sales():
+    conndb2()
     # Extract
+    conn2.execute('SET IDENTITY_INSERT Fact_Sales ON;')
     participant = pd.read_csv('csv/Dim_Participant.csv')
     payment = pd.read_csv('csv/Dim_Payment.csv')
 
@@ -14,7 +17,7 @@ def sales():
     participant = participant[['id', 'participant_name', 'participant_category']]
     payment = payment[['id', 'method', 'price']]
     
-    sales = pd.merge(participant, payment, on=['id'], how='inner')
+    sales = pd.merge(participant, payment, on='id', how='inner')
 
     sales.insert(5, 'sum_price', sales['price'])
     for i, _ in sales.iterrows():
@@ -26,4 +29,8 @@ def sales():
             sales.loc[i,'sum_price']=sales.loc[i-1,'sum_price']+sales.loc[i,'price']
 
     # Load
-    sales.to_csv('csv/Fact_Sales.csv', index=False)
+    sales.to_sql('Fact_Sales', conn2, if_exists='append', index=False) 
+    
+    conn2.execute('SET IDENTITY_INSERT Fact_Sales OFF;')
+    
+sales()

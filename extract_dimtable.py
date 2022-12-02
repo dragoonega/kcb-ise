@@ -13,46 +13,30 @@ def conndb():
 def dim_participant():
     # Extracting data from database
     dim_participant = pd.read_sql_table('Dimension_Participant', conn)
-
-    # Transform data sort alphabetical name
-    dim_sort = dim_participant.sort_values(['full_name','category','id'], ascending=(True, False, True))
-    dim_sort = dim_sort.reset_index(drop=True)
-    
+ 
     # Load To CSV 
-    dim_sort.to_csv('csv/Dim_Participant.csv', index=False)
+    dim_participant.to_csv('csv/Dim_Participant.csv', index=False)
      
 def dim_city():
     # Extracting data from database
     dim_city = pd.read_sql_table('Dimension_City', conn)
     
-    # Transform data sort alphabetical name
-    dim_sort = dim_city.sort_values(['region'], ascending=(True))
-    dim_sort = dim_sort.reset_index(drop=True)
-    
     # Load To CSV 
-    dim_sort.to_csv('csv/Dim_City.csv', index=False)
+    dim_city.to_csv('csv/Dim_City.csv', index=False)
     
 def dim_instance():
     # Extracting data from database
     dim_instance = pd.read_sql_table('Dimension_Instance', conn)
-    
-    # Transform data sort alphabetical name
-    dim_sort = dim_instance.sort_values(['name'], ascending=(True))
-    dim_sort = dim_sort.reset_index(drop=True)
-    
+     
     # Load To CSV 
-    dim_sort.to_csv('csv/Dim_Instance.csv', index=False)
+    dim_instance.to_csv('csv/Dim_Instance.csv', index=False)
     
 def dim_team():
     # Extracting data from database
     dim_team = pd.read_sql_table('Dimension_Team', conn)
-    
-    # Transform data sort alphabetical name
-    dim_sort = dim_team.sort_values(['name'], ascending=(True))
-    dim_sort = dim_sort.reset_index(drop=True)
-    
+     
     # Load To CSV 
-    dim_sort.to_csv('csv/Dim_Team.csv', index=False)
+    dim_team.to_csv('csv/Dim_Team.csv', index=False)
 
 def dim_payment():
     # Extracting data from database
@@ -92,4 +76,5 @@ def etl_dimensiontable():
     dim_team()
     dim_source()
     dim_time()
-    
+
+etl_dimensiontable()

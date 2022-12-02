@@ -5,14 +5,13 @@ from participant import participant
 from sales import sales
 from team import team
 from source import source
-from extract_dimtable import etl_dimensiontable,conndb,dim_time,dim_participant,dim_city,dim_instance,dim_payment,dim_region,dim_source,dim_team
-
+from extract_dimtable import etl_dimensiontable
 
 def pre():
     if os.path.exists('csv/Dim_City.csv'):
         os.remove('csv/Dim_City.csv')
     
-    if os.path.exists('csv/Dim_Participant'):
+    if os.path.exists('csv/Dim_Participant.csv'):
         os.remove('csv/Dim_Participant.csv')
     
     if os.path.exists('csv/Dim_Instance.csv'):
@@ -47,9 +46,8 @@ def pre():
 
 
 def main():
-    pre()
-    etl_dimensiontable()
-    participant()
+   #pre()
+    # participant()
     sales()
     team()
     source()
