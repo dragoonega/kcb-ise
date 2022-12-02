@@ -1,51 +1,51 @@
 id,price,status,method
-1,89000,Sudah Bayar,e wallet
-2,99000,Sudah Bayar,transfer ATM
+1,89000.0,Sudah Bayar,e wallet
+2,99000.0,Sudah Bayar,transfer ATM
 3,,Belum Bayar,
-4,89000,Sudah  Bayar,transfer ATM
+4,89000.0,Sudah  Bayar,transfer ATM
 5,,Belum Bayar,
-6,99000,Belum Bayar,
-7,89000,Sudah Bayar,e wallet
+6,99000.0,Belum Bayar,
+7,89000.0,Sudah Bayar,e wallet
 8,,Belum Bayar,
-9,99000,Belum Bayar,
-10,99000,Sudah  Bayar,e wallet
-11,99000,Sudah Bayar,e wallet
+9,99000.0,Belum Bayar,
+10,99000.0,Sudah  Bayar,e wallet
+11,99000.0,Sudah Bayar,e wallet
 12,,Belum Bayar,
-13,99000,Belum Bayar,
-14,99000,Sudah  Bayar,e wallet
-15,89000,Sudah  Bayar,transfer ATM
-16,99000,Sudah  Bayar,e wallet
-17,99000,Sudah  Bayar,transfer ATM
-18,89000,Sudah Bayar,transfer ATM
-19,99000,Sudah Bayar,e wallet
+13,99000.0,Belum Bayar,
+14,99000.0,Sudah  Bayar,e wallet
+15,89000.0,Sudah  Bayar,transfer ATM
+16,99000.0,Sudah  Bayar,e wallet
+17,99000.0,Sudah  Bayar,transfer ATM
+18,89000.0,Sudah Bayar,transfer ATM
+19,99000.0,Sudah Bayar,e wallet
 20,,Belum Bayar,
 21,,Belum Bayar,
-22,99000,Sudah  Bayar,transfer ATM
+22,99000.0,Sudah  Bayar,transfer ATM
 23,,Belum Bayar,
 24,,Belum Bayar,
-25,99000,Sudah Bayar,e wallet
-26,99000,Sudah Bayar,e wallet
-27,99000,Sudah  Bayar,transfer ATM
+25,99000.0,Sudah Bayar,e wallet
+26,99000.0,Sudah Bayar,e wallet
+27,99000.0,Sudah  Bayar,transfer ATM
 28,,Belum Bayar,
 29,,Belum Bayar,
-30,99000,Belum Bayar,
+30,99000.0,Belum Bayar,
 31,,Belum Bayar,
 32,,Belum Bayar,
-33,89000,Sudah  Bayar,e wallet
+33,89000.0,Sudah  Bayar,e wallet
 34,,Belum Bayar,
-35,99000,Belum Bayar,e wallet
+35,99000.0,Belum Bayar,e wallet
 36,,Belum Bayar,
-37,99000,Sudah  Bayar,e wallet
-38,99000,Sudah Bayar,e wallet
-39,89000,Belum Bayar,
-40,99000,SudahBayar,e wallet
+37,99000.0,Sudah  Bayar,e wallet
+38,99000.0,Sudah Bayar,e wallet
+39,89000.0,Belum Bayar,
+40,99000.0,SudahBayar,e wallet
 41,,Belum Bayar,
-42,99000,SudahBayar,e wallet
-43,99000,Sudah  Bayar,transfer ATM
-44,89000,Sudah  Bayar,e wallet
-45,99000,Sudah  Bayar,transfer ATM
-46,89000,Sudah Bayar,e wallet
-47,99000,Sudah Bayar,transfer ATM
+42,99000.0,SudahBayar,e wallet
+43,99000.0,Sudah  Bayar,transfer ATM
+44,89000.0,Sudah  Bayar,e wallet
+45,99000.0,Sudah  Bayar,transfer ATM
+46,89000.0,Sudah Bayar,e wallet
+47,99000.0,Sudah Bayar,transfer ATM
 48,,Belum Bayar,
 49,,Belum Bayar,
-50,89000,Sudah  Bayar,transfer ATM
+50,89000.0,Sudah  Bayar,transfer ATM

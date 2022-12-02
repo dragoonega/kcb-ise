@@ -1,6 +1,5 @@
-
-id,region_name
-1,Luar Jawa
-2,Luar Jawa Timur
-3,Jawa Timur
-7,Surabaya
+id,region_id,region_name
+1,1,Luar Jawa
+2,2,Luar Jawa Timur
+3,3,Jawa Timur
+4,7,Surabaya
