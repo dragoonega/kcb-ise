@@ -6,6 +6,8 @@ from sales import sales
 from team import team
 from source import source
 from extract_dimtable import etl_dimensiontable
+from onetimehistory import onetimehistory
+
 
 def pre():
     if os.path.exists('csv/Dim_City.csv'):
@@ -46,8 +48,10 @@ def pre():
 
 
 def main():
-   #pre()
-    # participant()
+    pre()
+    etl_dimensiontable()
+    onetimehistory()
+    participant()
     sales()
     team()
     source()

@@ -30,7 +30,7 @@ def sales():
 
     # Load
     sales.to_sql('Fact_Sales', conn2, if_exists='append', index=False) 
-    
+    sales.to_csv('csv/Fact_Sales.csv', index=False)
     conn2.execute('SET IDENTITY_INSERT Fact_Sales OFF;')
     
 sales()

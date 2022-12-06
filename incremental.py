@@ -49,7 +49,6 @@ def updatedata(df, table, key name):
     p = p.where(participant.c.participant_name == "Jennifer Ardelia")
     engine.execute(p)
 
-    
     # mengambil data 
     sql = text("SELECT * from participant")
 

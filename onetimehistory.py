@@ -57,7 +57,7 @@ def createtabledimension():
 
     dim_region = Table('Dimension_Region', metadata,
                 Column('id', Integer, primary_key=True, autoincrement=True),
-                Column('region_id', Integer, unique = True),
+                Column('region_id', Integer),
                 Column('region_name', String )
             )
             
@@ -105,11 +105,12 @@ def createFactTable():
     metadata = MetaData(bind=engine)
     fact_participant = Table('Fact_Participant', metadata,
             Column('id', Integer, primary_key=True, autoincrement=True),
-            Column('participant_id', Integer, ForeignKey(dim_part.c.id)),
-            Column('city_id', Integer, ForeignKey(dim_city.c.id)),
-            Column('region_id', Integer, ForeignKey(dim_region.c.id)),
-            Column('instance_id', Integer, ForeignKey(dim_instance.c.id)),
-            Column('teams_id', Integer, ForeignKey(dim_team.c.id))
+            Column('participant_name', String),
+            Column('participant_category', String),
+            Column('city_name', String),
+            Column('region_name', String),
+            Column('instance_name', String),
+            Column('team_name', String)
             )
 
     fact_participant.drop(checkfirst=True)
@@ -127,6 +128,7 @@ def createFactTable():
 
     fact_teams = Table('Fact_Teams', metadata,
             Column('id', Integer, primary_key=True, autoincrement=True),
+            Column('team_category', String),
             Column('team_name', String),
             Column('city_name', String),
             Column('region_name', String),
@@ -197,3 +199,4 @@ droptablefact()
 droptabledimension()
 createtabledimension()
 createFactTable()
+loaddatasource()

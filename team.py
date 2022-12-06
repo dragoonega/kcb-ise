@@ -5,6 +5,7 @@ from onetimehistory import conndb2,conn2
 
 def team():
     # Extract
+    conn2.execute('SET IDENTITY_INSERT Fact_Teams ON;')
     participant = pd.read_csv('csv/Dim_Participant.csv')
     team = pd.read_csv('csv/Dim_Team.csv')
     city = pd.read_csv('csv/Dim_City.csv')
@@ -21,7 +22,7 @@ def team():
     participant = participant[['id', 'team_category']]
     team = pd.merge(team, participant, how='inner', on='id')
 
-    city = pd.merge(city, region, how='inner', on='region_id')
+    city = pd.merge(city, region, how='inner', on='id')
     city = city[['id', 'city_name', 'region_name']]
     
     instance = instance[['id', 'instance_name']]
@@ -31,5 +32,6 @@ def team():
 
     # Load
     team.to_sql('Fact_Teams', conn2, if_exists='append', index=False)
-
+    team.to_csv('csv/Fact_Teams.csv', index=False)
+    conn2.execute('SET IDENTITY_INSERT Fact_Teams OFF;')
 team()

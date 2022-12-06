@@ -20,6 +20,7 @@ def source():
 
     # Load
     source.to_sql('Fact_Source', conn2, if_exists='append', index=False)
+    source.to_csv('csv/Fact_Source.csv', index=False)
     conn2.execute('SET IDENTITY_INSERT Fact_Source OFF;')
     
 source()

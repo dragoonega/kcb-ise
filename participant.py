@@ -6,7 +6,9 @@ from onetimehistory import conndb2,conn2
 # Participant Fact Table
 def participant():
     conndb2()
+    
     # Extract
+    conn2.execute('SET IDENTITY_INSERT Fact_Participant ON;')
     participant = pd.read_csv('csv/Dim_Participant.csv')
     city = pd.read_csv('csv/Dim_City.csv')
     region = pd.read_csv('csv/Dim_Region.csv')
@@ -23,7 +25,7 @@ def participant():
     participant = participant[['id', 'participant_name', 'participant_category']]
     instance = instance[['id', 'instance_name']]
 
-    city = pd.merge(city, region, how='inner', on='region_id')
+    city = pd.merge(city, region, how='inner', on='id')
     city = city[['id', 'city_name', 'region_name']]
 
     fact = pd.merge(participant, city, how='inner', on='id')
@@ -32,5 +34,7 @@ def participant():
 
     # Load
     fact.to_sql('Fact_Participant', conn2, if_exists='append', index=False)
+    fact.to_csv('csv/Fact_Participant.csv', index=False)
+    conn2.execute('SET IDENTITY_INSERT Fact_Participant OFF;')
     
 participant()
