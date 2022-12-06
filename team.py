@@ -32,6 +32,5 @@ def team():
 
     # Load
     team.to_sql('Fact_Teams', conn2, if_exists='append', index=False)
-    team.to_csv('csv/Fact_Teams.csv', index=False)
     conn2.execute('SET IDENTITY_INSERT Fact_Teams OFF;')
 team()

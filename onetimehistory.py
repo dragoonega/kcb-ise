@@ -194,9 +194,12 @@ def loaddatasource():
     source_source.to_sql('Dimension_Source', conn2, if_exists='append', index=False)
     conn2.execute('SET IDENTITY_INSERT Dimension_Source OFF;')
     
-conndb2()
-droptablefact()
-droptabledimension()
-createtabledimension()
-createFactTable()
-loaddatasource()
+def onetimehist():
+    conndb2()
+    droptablefact()
+    droptabledimension()
+    createtabledimension()
+    createFactTable()
+    loaddatasource()
+
+onetimehist()

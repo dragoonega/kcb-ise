@@ -34,7 +34,6 @@ def participant():
 
     # Load
     fact.to_sql('Fact_Participant', conn2, if_exists='append', index=False)
-    fact.to_csv('csv/Fact_Participant.csv', index=False)
     conn2.execute('SET IDENTITY_INSERT Fact_Participant OFF;')
     
 participant()

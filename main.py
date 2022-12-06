@@ -6,7 +6,7 @@ from sales import sales
 from team import team
 from source import source
 from extract_dimtable import etl_dimensiontable
-from onetimehistory import onetimehistory
+from onetimehistory import onetimehist
 
 
 def pre():
@@ -41,7 +41,7 @@ def pre():
         os.remove('csv/Fact_Sales.csv')
     
     if os.path.exists('csv/Fact_Team.csv'):
-        os.remove('csv/Fact_Team.csv')
+        os.remove('csv/Fact_Teams.csv')
     
     if os.path.exists('csv/Fact_Source.csv'):
         os.remove('csv/Fact_Source.csv')
@@ -50,7 +50,7 @@ def pre():
 def main():
     pre()
     etl_dimensiontable()
-    onetimehistory()
+    onetimehist()
     participant()
     sales()
     team()
